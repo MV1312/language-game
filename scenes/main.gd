@@ -23,7 +23,7 @@ const DEFAULT_WORDS := [
 
 # Скорость падения слов.
 # Если поставить 0, слова не будут падать.
-@export var fall_speed := 140.0
+@export var fall_speed := 14.0
 
 # Если true, слова появляются сверху и падают.
 # Если false, слова появляются в случайном месте.
@@ -225,7 +225,7 @@ func place_buttons() -> void:
 	if area_size.x < 10.0 or area_size.y < 10.0:
 		area_size = get_viewport().get_visible_rect().size
 
-	var margin := 16.0
+	var margin := 100.0
 	var button_size := Vector2(220, 76)
 
 	var min_x := margin
@@ -240,12 +240,12 @@ func place_buttons() -> void:
 		x2 = randf_range(min_x, max_x)
 		attempts += 1
 
-	var y1 := 0.0
-	var y2 := 0.0
+	var y1 = 0.0
+	var y2 = 0.0
 
 	if spawn_from_top:
-		y1 = -100.0
-		y2 = -210.0
+		y1 = 40.0
+		y2 = 40.0
 	else:
 		var min_y := 12.0
 		var max_y = max(min_y, area_size.y - button_size.y - 12.0)
@@ -340,12 +340,12 @@ func flash(control: Control, color: Color) -> void:
 	get_tree().create_timer(0.18).timeout.connect(_reset_modulate.bind(control))
 
 
-func _reset_modulate(control: Control) -> void:
+func _reset_modulate(control: Control) -> void: # при неправильном ответе выдает ошибку что нет аргумента - разобраться!!! 
 	if is_instance_valid(control):
 		control.modulate = Color.WHITE
 
 
-func end_game(win: bool) -> void:
+func end_game(win: bool) -> void: 
 	is_running = false
 
 	clear_buttons()

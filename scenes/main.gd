@@ -15,6 +15,7 @@ const DEFAULT_WORDS := [
 	{"en": "quick", "ru": "быстрый"}
 ]
 
+
 # Сколько правильных слов нужно найти.
 @export var target_score := 10
 
@@ -65,7 +66,7 @@ func _ready() -> void:
 	message_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	message_label.text = "Нажми, чтобы начать"
 
-	update_hud()
+	update_hud() 
 
 
 func _input(event: InputEvent) -> void:
@@ -338,9 +339,10 @@ func flash(control: Control, color: Color) -> void:
 	control.modulate = color
 
 	get_tree().create_timer(0.18).timeout.connect(_reset_modulate.bind(control))
+	
 
 
-func _reset_modulate(control: Control) -> void: # при неправильном ответе выдает ошибку что нет аргумента - разобраться!!! 
+func _reset_modulate(control: Control) -> void: # при неправильном ответе выдает ошибку что нет аргумента - разобраться!!!
 	if is_instance_valid(control):
 		control.modulate = Color.WHITE
 

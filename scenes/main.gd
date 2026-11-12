@@ -24,7 +24,7 @@ const DEFAULT_WORDS := [
 
 # Скорость падения слов.
 # Если поставить 0, слова не будут падать.
-@export var fall_speed := 14.0
+@export var fall_speed := 10.0
 
 # Если true, слова появляются сверху и падают.
 # Если false, слова появляются в случайном месте.
@@ -38,7 +38,7 @@ const DEFAULT_WORDS := [
 
 # Можно подключить свой файл слов.
 # Если файла нет, будут использоваться DEFAULT_WORDS.
-@export var words_file := "res://words.json"
+@export var words_file := "res://words_a1.json"
 
 var words: Array = []
 var time_left := 0.0

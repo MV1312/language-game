@@ -29,6 +29,8 @@ const DEFAULT_WORDS := [
 # Если true, слова появляются сверху и падают.
 # Если false, слова появляются в случайном месте.
 @export var spawn_from_top := true
+#@export var spawn_from_top := false
+
 
 # Штраф за неправильный ответ.
 @export var wrong_penalty := 3.0
@@ -355,6 +357,6 @@ func end_game(win: bool) -> void:
 	if win:
 		message_label.text = "Победа! Ты нашёл нужное количество слов."
 	else:
-		message_label.text = "Время вышло. Счёт: %d/%d\nНажми, чтобы попробовать снова." % [score, target_score]
+		message_label.text = "Время вышло. Счёт: %d/%d\nНажми, чтобы попробовать снова." % [score +1, target_score]
 
 	message_label.show()
